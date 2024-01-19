@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
-import { fileURLToPath } from "url";
+import {defineConfig} from "vite";
+import {fileURLToPath} from "url";
 import path from "path";
 
 export default defineConfig({

@@ -1,4 +1,4 @@
-# Theme Vite Starter
+# ThemeMin Vite Starter
 
 一个集成了 Vite 的主题快速开始模板。
 

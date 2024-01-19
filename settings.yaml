@@ -1,13 +1,137 @@
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: theme-vite-starter-setting
+  name: theme-clear-setting
 spec:
   forms:
-    - group: styles
-      label: 样式
+    - group: home
+      label: 首页
       formSchema:
-        - $formkit: color
-          name: background_color
-          label: 背景颜色
-          value: "#f2f2f2"
+        - $formkit: attachment
+          name: top_logo
+          label: 顶部左侧 logo 图标
+          value: /themes/theme-clear/assets/img/avatar.png
+        - $formkit: text
+          name: top_logo_desc
+          label: 顶部左侧 logo 描述
+          value: Clear
+        - $formkit: attachment
+          name: avatar_img
+          label: 首页头像图片
+          value: /themes/theme-clear/assets/img/avatar.png
+        - $formkit: text
+          name: web_desc
+          label: 打字机动画文字描述
+          value: "一个简洁、优雅且高效的 Halo 主题"
+        - $formkit: repeater
+          name: social
+          label: 社交途径和联系方式
+          value:
+            - title: 微信号
+              desc: 微信号
+              url: 123456
+              icon: fab fa-weixin fa-fw
+            - title: 微博
+              desc: 微博
+              url: https://weibo.com/
+              icon: fab fa-weibo fa-fw
+            - title: Github
+              desc: Github
+              url: https://github.com/
+              icon: fab fa-github fa-fw
+            - title: 电话
+              desc: 电话
+              url: 13612345678
+              icon: fa fa-phone
+            - title: 邮箱
+              desc: 邮箱
+              url: https://xxx@qq.com/
+              icon: fa fa-envelope-o
+            - title: BiliBili
+              desc: 哔哩哔哩
+              url: https://space.bilibili.com/
+              svg: /themes/theme-clear/assets/img/icon/bilibili.svg
+            - title: Zhihu
+              desc: 知乎
+              url: https://www.zhihu.com/
+              svg: /themes/theme-clear/assets/img/icon/zhihu.svg
+          children:
+            - $formkit: text
+              name: title
+              label: 社交媒体名称
+              value:
+            - $formkit: text
+              name: desc
+              label: 描述
+              value:
+            - $formkit: url
+              name: url
+              label: 跳转地址
+              value:
+            - $formkit: select
+              name: icon
+              label: 社交媒体 icon 选择
+              value:
+              options:
+                - label: 无
+                  value: ""
+                - label: 微信
+                  value: fab fa-weixin fa-fw
+                - label: 微博
+                  value: fab fa-weibo fa-fw
+                - label: Github
+                  value: fab fa-github fa-fw
+                - label: 电话
+                  value: fa fa-phone
+                - label: 邮箱
+                  value: fa fa-envelope-o
+            - $formkit: attachment
+              name: svg
+              label: 自定义 svg 图标（无对应 icon 时可选）
+              value:
+    - group: system
+      label: 主题参数
+      formSchema:
+        - $formkit: text
+          name: version
+          label: 主题版本
+          value: "1.0.0"
+        - $formkit: attachment
+          name: svgFavicon
+          label: 站点图标
+          help: "支持 png、ico、svg 格式"
+          accepts:
+            - "image/png"
+            - "image/ico"
+            - "image/svg"
+          value: /themes/theme-clear/assets/img/avatar.png
+    - group: bottombar
+      label: 底部
+      formSchema:
+        - $formkit: text
+          name: copyright
+          label: copyright 年份区间
+          value: 2019 - 2024
+        - $formkit: text
+          name: authorName
+          label: 作者昵称
+          value: 骏弘兄
+        - $formkit: text
+          name: icp
+          label: icp 备案号
+          value: 123456
+    - group: about
+      label: 关于
+      formSchema:
+        - $formkit: text
+          name: themeName
+          label: 主题名称
+          value: Clear
+        - $formkit: attachment
+          name: themeImg
+          label: 主题预览图
+          value: /themes/theme-clear/assets/img/Apple-Devices-Preview.png
+        - $formkit: text
+          name: imgDesc
+          label: 主题预览图描述
+          value: Halo 主题 Clear

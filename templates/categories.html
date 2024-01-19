@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(content = ~{::content})}">
+<th:block th:fragment="content">
+
+  <div class="page archive">
+    <h2 class="single-title animate__animated animate__pulse animate__faster">
+      所有分类
+    </h2>
+    <div class=categories-card>
+      <th:block
+        th:each="category : ${categories}"
+        th:with="posts=${postFinder.listByCategory(1,10,category.metadata.name)}">
+        <div class=card-item>
+          <div class=card-item-wrapper>
+            <h3 class=card-item-title>
+              <a th:href="@{${category.status.permalink}}">
+                <i class="far fa-folder fa-fw" aria-hidden=true></i>
+                &nbsp;<th:block th:text="${category.spec.displayName}"></th:block>
+              </a>
+            </h3>
+            <div th:if="${posts.total gt 0}">
+              <article class=archive-item th:each="post : ${posts.items}">
+                <a th:href="${post.status.permalink}" th:text="${post.spec.title}">
+                </a>
+              </article>
+            </div>
+            <span class=more-post th:if="${posts.total gt 5}">
+              <a th:href="@{${category.status.permalink}}" class=more-single-link>
+                更多 >>
+              </a>
+            </span>
+          </div>
+        </div>
+      </th:block>
+    </div>
+
+  </div>
+</th:block>
+</html>
+
+<script type=text/javascript>
+  window.config = {
+    data: {},
+  }
+</script>

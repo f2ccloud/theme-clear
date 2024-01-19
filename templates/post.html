@@ -1,6 +1,146 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org" th:replace="~{modules/layout :: html(content = ~{::content})}">
-  <th:block th:fragment="content">
-    <article th:utext="${post.content.content}"></article>
-  </th:block>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:halo="http://java.sun.com/xml/ns/javaee"
+      th:replace="~{modules/layout :: html(content = ~{::content})}">
+<th:block th:fragment="content">
+  <article class="page single">
+    <h1 class="single-title animate__animated animate__flipInX" th:text="${post.spec.title}">
+    </h1>
+    <div class=post-meta>
+      <div class=post-meta-line>
+								<span class=post-author>
+									<a href=/ title=Author target=_blank rel="noopener noreffer author"
+                     class=author>
+										<i class="fas fa-user-circle fa-fw" aria-hidden=true>
+										</i>
+                    <th:block th:text="${post.spec.owner}"></th:block>
+									</a>
+								</span>
+        &nbsp;
+        <span class=post-category>
+          收录于
+          
+          <th:block th:if="${not #lists.isEmpty(post.categories)}">
+            <a th:href="@{${category.status.permalink}}" th:each="category : ${post.categories}">
+              <i class="far fa-folder fa-fw" aria-hidden=true>
+              </i>
+              <th:block th:text="${category.spec.displayName}"></th:block>
+            </a>
+          </th:block>
+        </span>
+      </div>
+      <div class=post-meta-line>
+        <i class="far fa-calendar-alt fa-fw" aria-hidden=true>
+        </i>
+        &nbsp;
+        <time th:text="${#dates.format(post.spec.publishTime,'yyyy-MM-dd')}">
+        </time>
+        &nbsp;
+        <i class="fas fa-pencil-alt fa-fw" aria-hidden=true>
+        </i>
+        <th:block th:with="content = ${postFinder.content(post.metadata.name)}">
+          <th:block th:with="wordCount = ${#strings.length(content.content)}">
+
+            约 <span th:text="${wordCount}"></span> 字
+
+            <i class="far fa-clock fa-fw" aria-hidden=true>
+            </i>
+            <th:block th:if="${wordCount / 400 lt 1}">
+              &nbsp;预计阅读 1 分钟&nbsp;
+            </th:block>
+            <th:block th:if="${wordCount / 400 ge 1}">
+              &nbsp;预计阅读 [[${wordCount / 400}]] 分钟&nbsp;
+            </th:block>
+
+            <span class=leancloud_visitors>
+              <i class="far fa-eye fa-fw" aria-hidden=true>
+              </i>
+              &nbsp;
+              <span class=leancloud-visitors-count th:text="${post.stats.visit}">
+              </span>
+              &nbsp;次阅读
+            </span>
+          </th:block>
+        </th:block>
+      </div>
+    </div>
+    <div class=featured-image>
+      <img class=lazyload th:src="${post.spec.cover}" data-sizes=auto
+           th:title="${post.spec.title}" th:alt="${post.spec.title}">
+    </div>
+    <div class=content id=content>
+      <section th:utext="${post.content.content}">
+        <hr/>
+      </section>
+    </div>
+    
+    <div class=post-footer id=post-footer>
+      <div class=post-info>
+        <div class=post-info-line>
+          <div class=post-info-mod>
+										<span>
+											更新于&nbsp;
+											<time th:text="${#dates.format(post.status.lastModifyTime,'yyyy-MM-dd')}"></time>
+										</span>
+          </div>
+        </div>
+      </div>
+      <div class=post-info-more>
+        <section class=post-tags>
+          <th:block th:if="${not #lists.isEmpty(post.tags)}">
+            <a th:href="@{${tag.status.permalink}}" th:each="tag : ${post.tags}">
+              <i class="fas fa-tags fa-fw" aria-hidden=true>
+              </i>
+              &nbsp;
+              <th:block th:text="${tag.spec.displayName}"></th:block>
+            </a>
+          </th:block>
+        </section>
+        <section>
+          <span>
+            <a href=javascript:void(0); onclick=window.history.back()>
+              返回
+            </a>
+          </span>
+          &nbsp;|&nbsp;
+          <span>
+            <a href="/">主页</a>
+          </span>
+        </section>
+      </div>
+
+      <div class=post-nav th:with="postCursor = ${postFinder.cursor(post.metadata.name)}">
+        <a th:if="${postCursor.hasPrevious()}" th:href="@{${postCursor.previous.status.permalink}}" class=prev rel=prev
+           th:title="${postCursor.previous.spec.title}">
+          <i class="fas fa-angle-left fa-fw" aria-hidden=true>
+          </i>
+          <span th:text="${postCursor.previous.spec.title}"></span>
+        </a>
+
+        <a th:if="${postCursor.hasNext()}" th:href="@{${postCursor.next.status.permalink}}" class=next rel=next
+           th:title="${postCursor.next.spec.title}">
+          <i class="fas fa-angle-right fa-fw" aria-hidden=true>
+          </i>
+          <span th:text="${postCursor.next.spec.title}"></span>
+        </a>
+      </div>
+    </div>
+    <!-- 后续做评论组件 -->
+    <div id=comments class=comment>
+      <halo:comment
+        group="content.halo.run"
+        kind="Post"
+        th:attr="name=${post.metadata.name}"
+        colorScheme="'light'"
+      />
+    </div>
+  </article>
+
+
+</th:block>
 </html>
+
+<script type=text/javascript>
+  window.config = {
+    data: {},
+  }
+</script>
