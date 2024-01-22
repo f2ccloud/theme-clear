@@ -9,8 +9,8 @@ spec:
     website: https://www.halo.run
   description: A development starter theme with Vite Ecosystem for Halo
   logo: https://www.halo.run/logo
-  website: https://github.com/john1298308460/theme-clear
-  repo: https://github.com/john1298308460/theme-clear.git
+  website: https://github.com/f2ccloud/theme-clear
+  repo: https://github.com/f2ccloud/theme-clear.git
   settingName: "theme-clear-setting"
   configMapName: "theme-clear-configMap"
   version: 1.0.0

@@ -92,10 +92,6 @@ spec:
     - group: system
       label: 主题参数
       formSchema:
-        - $formkit: text
-          name: version
-          label: 主题版本
-          value: "1.0.0"
         - $formkit: attachment
           name: svgFavicon
           label: 站点图标

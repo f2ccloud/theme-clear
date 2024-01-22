@@ -17,9 +17,8 @@
 								</span>
         &nbsp;
         <span class=post-category>
-          收录于
-          
           <th:block th:if="${not #lists.isEmpty(post.categories)}">
+            收录于
             <a th:href="@{${category.status.permalink}}" th:each="category : ${post.categories}">
               <i class="far fa-folder fa-fw" aria-hidden=true>
               </i>
@@ -39,9 +38,7 @@
         </i>
         <th:block th:with="content = ${postFinder.content(post.metadata.name)}">
           <th:block th:with="wordCount = ${#strings.length(content.content)}">
-
             约 <span th:text="${wordCount}"></span> 字
-
             <i class="far fa-clock fa-fw" aria-hidden=true>
             </i>
             <th:block th:if="${wordCount / 400 lt 1}">
@@ -50,7 +47,6 @@
             <th:block th:if="${wordCount / 400 ge 1}">
               &nbsp;预计阅读 [[${wordCount / 400}]] 分钟&nbsp;
             </th:block>
-
             <span class=leancloud_visitors>
               <i class="far fa-eye fa-fw" aria-hidden=true>
               </i>
@@ -72,7 +68,6 @@
         <hr/>
       </section>
     </div>
-    
     <div class=post-footer id=post-footer>
       <div class=post-info>
         <div class=post-info-line>
@@ -107,7 +102,6 @@
           </span>
         </section>
       </div>
-
       <div class=post-nav th:with="postCursor = ${postFinder.cursor(post.metadata.name)}">
         <a th:if="${postCursor.hasPrevious()}" th:href="@{${postCursor.previous.status.permalink}}" class=prev rel=prev
            th:title="${postCursor.previous.spec.title}">
@@ -115,7 +109,6 @@
           </i>
           <span th:text="${postCursor.previous.spec.title}"></span>
         </a>
-
         <a th:if="${postCursor.hasNext()}" th:href="@{${postCursor.next.status.permalink}}" class=next rel=next
            th:title="${postCursor.next.spec.title}">
           <i class="fas fa-angle-right fa-fw" aria-hidden=true>
@@ -134,8 +127,6 @@
       />
     </div>
   </article>
-
-
 </th:block>
 </html>
 

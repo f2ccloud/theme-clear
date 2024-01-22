@@ -1,23 +1,32 @@
-# ThemeMin Vite Starter
+# Clear 主题使用与限制
 
-一个集成了 Vite 的主题快速开始模板。
+基于 Halo2.0 开发，将当前目录压缩为 zip 包后安装
 
-主题开发文档可查阅：<https://docs.halo.run/2.0.0-SNAPSHOT/developer-guide/theme/prepare>
+基于 [LoveIt](https://github.com/dillonzq/LoveIt) Hugo 主题模版进行开发
 
-## 开发
+初始化设置步骤如下：
 
-```bash
-git clone git@github.com:halo-dev/theme-vite-starter.git ~/halo2-dev/themes/theme-vite-starter
-```
+- [x] 安装主题后，需要在 Halo 的管理后台（Console 端）设置，在「菜单」—「主菜单」中，依次设置四个菜单项：
+- 【菜单1】**名称**：所有文章；**类型**：自定义链接；**链接地址**：/archives；其他为默认
+- 【菜单2】**名称**：标签；**类型**：自定义链接；**链接地址**：/tags；其他为默认
+- 【菜单3】**名称**：分类；**类型**：自定义链接；**链接地址**：/categories；其他为默认
+- 【菜单4】**类型**：自定义页面；**自定义页面**：选择「关于」页面；其他为默认
 
-```bash
-cd ~/halo2-dev/themes/theme-vite-starter
-```
+  上述设置完成后，提交并保存，并且重载主题配置刷新。
 
-```bash
-pnpm install 
-```
 
-```bash
-pnpm dev
-```
+- [x] 如果需要展示博客内容，需要在 Console 端添加 **文章 / 标签 / 分类**，然后将文章在设置里划分到对应的标签和分类中
+
+注：如果主题的部分样式丢失，可在 Console 端的主题 tag 菜单底部点击保存并再次刷新主题页面查看效果
+
+预览效果
+![clear1.jpg](clear1.jpg)
+
+![clear2.jpg](clear2.jpg)
+
+预览地址:
+http://43.136.69.44:8090/
+
+如有版权问题请联系 junhong.zhou@fit2cloud.com 进行修改
+
+主题开发参考 [Halo官方文档](https://docs.halo.run)
