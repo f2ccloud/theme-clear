@@ -1,22 +1,31 @@
 {
-  "description": "A development starter theme with Vite Ecosystem for Halo",
+  "name": "@halo-dev/theme-clear",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A development starter theme with modern front-end technology stack for Halo",
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "tsc && vite build",
+    "lint": "eslint ./src --ext .js,.cjs,.mjs,.ts,.cts,.mts --ignore-path .gitignore",
+    "prettier": "prettier --write './src/**/*.{js,ts,css,json,ml,yaml,html}' './templates/**/*.html'"
+  },
   "keywords": [
     "halo",
     "halo-theme"
   ],
-  "homepage": "https://github.com/halo-dev/theme-vite-starter#readme",
+  "homepage": "https://github.com/f2ccloud/theme-clear#readme",
   "bugs": {
-    "url": "https://github.com/halo-dev/theme-vite-starter/issues"
+    "url": "https://github.com/f2ccloud/theme-clear/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/halo-dev/theme-vite-starter"
+    "url": "https://github.com/f2ccloud/theme-clear"
   },
   "license": "GPL-3.0",
   "author": {
-    "name": "Halo",
-    "email": "hi@halo.run",
-    "url": "https://github.com/halo-dev"
+    "name": "Halo OSS Organization",
+    "url": "https://github.com/halo-dev",
+    "email": "hi@halo.run"
   },
   "maintainers": [
     {
@@ -25,12 +34,6 @@
       "url": "https://github.com/ruibaby"
     }
   ],
-  "scripts": {
-    "build": "tsc && vite build",
-    "dev": "vite build --watch",
-    "lint": "eslint ./src --ext .js,.cjs,.mjs,.ts,.cts,.mts --ignore-path .gitignore",
-    "prettier": "prettier --write './src/**/*.{js,ts,css,json,ml,yaml,html}' './templates/**/*.html'"
-  },
   "devDependencies": {
     "@types/node": "18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
