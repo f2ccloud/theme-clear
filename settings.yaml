@@ -119,6 +119,47 @@ spec:
     - group: about
       label: 关于
       formSchema:
+        - $formkit: repeater
+          name: top_desc
+          id: top_desc
+          key: top_desc
+          label: 顶部描述
+          value:
+            - desc: 这是一段描述1
+            - desc: 这是一段描述2
+          children:
+            - $formkit: text
+              name: desc
+              label: 顶部描述内容
+              value:
+        - $formkit: repeater
+          name: content
+          label: 内容描述
+          value:
+            - h2_desc: 这是一段描述1
+              items:
+                - desc: 描述1下子列表1
+                - desc: 描述1下子列表2
+                - desc: 描述1下子列表3
+            - h2_desc: 这是一段描述2
+              items:
+                - desc: 描述2下子列表2
+                - desc: 描述2下子列表2
+                - desc: 描述2下子列表2
+          children:
+            - $formkit: text
+              name: h2_desc
+              label: h2 标题描述
+              value:
+            - $formkit: repeater
+              name: items
+              label: 描述下子列表
+              value: [ ]
+              children:
+                - $formkit: text
+                  name: desc
+                  label: 列表单行描述
+                  value: ""
         - $formkit: text
           name: themeName
           label: 主题名称
