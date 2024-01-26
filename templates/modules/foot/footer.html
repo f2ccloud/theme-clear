@@ -1,18 +1,6 @@
 <footer class=footer>
   <div class=footer-container>
-    <div class=footer-line>
-      由
-      <a href=https://halo.run/ target=_blank rel="noopener noreffer" title="Halo 2.11.0">
-        Halo
-      </a>
-      强力驱动 | 来源主题 -
-      <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer"
-         title="LoveIt 0.2.11">
-        <i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true>
-        </i>
-        LoveIt
-      </a>
-    </div>
+
     <div class=footer-line itemscope itemtype=http://schema.org/CreativeWork>
       <i class="far fa-copyright fa-fw" aria-hidden=true>
       </i>
@@ -34,5 +22,15 @@
       <span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>ICP 备
       <span class="icp" th:text="${theme.config.bottombar.icp}"></span> 号
     </div>
+    <div class=footer-line>
+      Powered By
+      <a href=https://halo.run/ target=_blank rel="noopener noreffer" title="Halo 2.11.0">
+        Halo
+      </a>
+    </div>
+
+    <footer>
+      <halo:footer/>
+    </footer>
   </div>
 </footer>

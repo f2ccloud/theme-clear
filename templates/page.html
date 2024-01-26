@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:halo="http://java.sun.com/xml/ns/javaee"
+      th:replace="~{modules/layout :: html(title = ${singlePage.spec.title} + ' - ' + ${site.title}, content = ~{::content})}"
+>
+<th:block th:fragment="content">
+
+  <div class="page single special">
+    <h1 class="single-title animate__animated animate__pulse animate__faster">
+      <th:block th:text="${singlePage.spec.title}"></th:block>
+    </h1>
+    <div class=content id=content>
+      <figure th:if="${not #strings.isEmpty(singlePage.spec.cover)}">
+        <img class=lazyload th:src="${singlePage.spec.cover}"
+             data-sizes=auto th:alt="${singlePage.spec.cover}" width=3200 height=2048>
+      </figure>
+      <article>
+        <div th:utext="${singlePage.content.content}"></div>
+      </article>
+    </div>
+    <!-- 后续做评论组件 -->
+    <div id=comments class=comment>
+      <halo:comment
+        group="content.halo.run"
+        kind="SinglePage"
+        th:attr="name=${singlePage.metadata.name}"
+        colorScheme="'light'"
+      />
+    </div>
+  </div>
+
+</th:block>
+</html>
+
+<script type=text/javascript>
+  window.config = {
+    data: {},
+  }
+</script>

@@ -7,7 +7,7 @@ spec:
   author:
     name: Halo
     website: https://www.halo.run
-  description: A development starter theme with Vite Ecosystem for Halo
+  description: A simple, elegant and efficient Halo theme
   logo: https://www.halo.run/logo
   website: https://github.com/f2ccloud/theme-clear
   repo: https://github.com/f2ccloud/theme-clear.git
@@ -15,9 +15,9 @@ spec:
   configMapName: "theme-clear-configMap"
   version: 1.0.0
   require: ">=2.0.0"
-  customTemplates:
-    page:
-      - name: 关于
-        description: 关于
-        screenshot:
-        file: about.html
+#  customTemplates:
+#    page:
+#      - name: 关于
+#        description: 关于
+#        screenshot:
+#        file: about.html
