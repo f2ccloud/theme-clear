@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" th:fragment="html (content)" xmlns:th="https://www.thymeleaf.org">
   <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title th:text="${site.title}"></title>
-    <th:block th:replace="~{modules/head/meta.html}"/>
-    <th:block th:replace="~{modules/head/link.html}"/>
+    <th:block th:replace="~{modules/head/meta.html}" />
+    <th:block th:replace="~{modules/head/link.html}" />
   </head>
-  <body data-header-desktop=fixed data-header-mobile=auto>
+  <body data-header-desktop="fixed" data-header-mobile="auto">
     <script type="text/javascript">
       const themeMode = "auto";
-      (window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : (themeMode === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : themeMode === 'dark')) && document.body.setAttribute('theme', 'dark');
+      (window.localStorage && localStorage.getItem("theme")
+        ? localStorage.getItem("theme") === "dark"
+        : themeMode === "auto"
+        ? window.matchMedia("(prefers-color-scheme: dark)").matches
+        : themeMode === "dark") && document.body.setAttribute("theme", "dark");
     </script>
     <div id="mask"></div>
-    <div class=wrapper>
-      <th:block th:replace="~{modules/head/header}"/>
+    <div class="wrapper">
+      <th:block th:replace="~{modules/head/header}" />
       <main class="main">
         <div class="container">
           <!-- 内容 -->
           <th:block th:replace="${content}"></th:block>
         </div>
       </main>
-      <th:block th:replace="~{modules/foot/footer}"/>
+      <th:block th:replace="~{modules/foot/footer}" />
     </div>
-    <div id=fixed-buttons>
-      <a href=# id=back-to-top class=fixed-button title=回到顶部>
-        <i class="fas fa-arrow-up fa-fw" aria-hidden=true>
-        </i>
+    <div id="fixed-buttons">
+      <a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw" aria-hidden="true"> </i>
       </a>
-      <a href=# id=view-comments class=fixed-button title=查看评论>
-        <i class="fas fa-comment fa-fw" aria-hidden=true>
-        </i>
+      <a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw" aria-hidden="true"> </i>
       </a>
     </div>
     <script data-cfasync="false" th:src="@{/assets/js/email-decode.min.js}"></script>
-    <script type=text/javascript th:src="@{/assets/js/autocomplete.min.js}"></script>
-    <script type=text/javascript th:src="@{/assets/js/algoliasearch-lite.umd.min.js}"></script>
-    <script type=text/javascript th:src="@{/assets/js/lazysizes.min.js}"></script>
-    <script type=text/javascript th:src="@{/assets/js/clipboard.min.js}"></script>
-    <script type=text/javascript th:src="@{/assets/js/sharer.min.js}"></script>
-    <script type=text/javascript th:src="@{/assets/js/index.umd.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/autocomplete.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/algoliasearch-lite.umd.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/lazysizes.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/clipboard.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/sharer.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/index.umd.js}"></script>
     <script defer th:src="@{/assets/js/beacon.min.js}" crossorigin="anonymous"></script>
-    <script type=text/javascript th:src="@{/assets/js/theme.min.js}"></script>
+    <script type="text/javascript" th:src="@{/assets/js/theme.min.js}"></script>
   </body>
 </html>

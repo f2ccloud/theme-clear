@@ -1,36 +1,34 @@
-<footer class=footer>
-  <div class=footer-container>
-
-    <div class=footer-line itemscope itemtype=http://schema.org/CreativeWork>
-      <i class="far fa-copyright fa-fw" aria-hidden=true>
-      </i>
-      <span itemprop=copyrightYear th:text="${theme.config.bottombar.copyright}">
-      </span>
-      <span class=author itemprop=copyrightHolder>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork">
+      <i class="far fa-copyright fa-fw" aria-hidden="true"> </i>
+      <span itemprop="copyrightYear" th:text="${theme.config.bottombar.copyright}"> </span>
+      <span class="author" itemprop="copyrightHolder">
         &nbsp;
-        <a href=/ target=_blank>
+        <a href="/" target="_blank">
           <th:block th:text="${theme.config.bottombar.authorName}"></th:block>
         </a>
       </span>
       &nbsp;|&nbsp;
-      <span class=license>
-        <a rel="license external nofollow noopener noreffer"
-           href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>
+      <span class="license">
+        <a
+          rel="license external nofollow noopener noreffer"
+          href="https://creativecommons.org/licenses/by-nc/4.0/"
+          target="_blank"
+        >
           CC BY-NC 4.0
         </a>
       </span>
-      <span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>ICP 备
+      <span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br" />ICP 备
       <span class="icp" th:text="${theme.config.bottombar.icp}"></span> 号
     </div>
-    <div class=footer-line>
+    <div class="footer-line">
       Powered By
-      <a href=https://halo.run/ target=_blank rel="noopener noreffer" title="Halo 2.11.0">
-        Halo
-      </a>
+      <a href="https://www.halo.run/" target="_blank" rel="noopener noreffer" title="Halo"> Halo </a>
     </div>
 
     <footer>
-      <halo:footer/>
+      <halo:footer />
     </footer>
   </div>
 </footer>
