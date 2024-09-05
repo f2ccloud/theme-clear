@@ -1,14 +1,8 @@
 {
   "name": "@halo-dev/theme-clear",
-  "private": true,
   "version": "1.0.1",
+  "private": true,
   "description": "A development starter theme with modern front-end technology stack for Halo",
-  "scripts": {
-    "dev": "vite build --watch",
-    "build": "tsc && vite build",
-    "lint": "eslint ./src --ext .js,.cjs,.mjs,.ts,.cts,.mts --ignore-path .gitignore",
-    "prettier": "prettier --write './src/**/*.{js,ts,css,json,ml,yaml,html}' './templates/**/*.html'"
-  },
   "keywords": [
     "halo",
     "halo-theme"
@@ -24,8 +18,8 @@
   "license": "GPL-3.0",
   "author": {
     "name": "Halo OSS Organization",
-    "url": "https://github.com/halo-dev",
-    "email": "hi@halo.run"
+    "email": "hi@halo.run",
+    "url": "https://github.com/halo-dev"
   },
   "maintainers": [
     {
@@ -34,24 +28,37 @@
       "url": "https://github.com/ruibaby"
     }
   ],
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite build --watch",
+    "lint": "eslint ./src --ext .js,.cjs,.mjs,.ts,.cts,.mts --ignore-path .gitignore",
+    "prepare": "husky install",
+    "prettier": "prettier --write './src/**/*.{js,ts,css,json,ml,yaml,html}' './templates/**/*.html'"
+  },
+  "lint-staged": {
+    "*.html": [
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
-    "@types/node": "18.11.9",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "eslint": "^8.53.0",
-    "eslint-config-prettier": "^8.10.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.8",
-    "typescript": "^4.9.5",
-    "vite": "^4.5.0",
     "@algolia/cli": "^4.0.8",
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
+    "@types/node": "18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
     "babelify": "^10.0.0",
     "browserify": "^16.5.2",
     "core-js": "^3.22.4",
-    "husky": "^7.0.0",
-    "segmentit": "^2.0.3"
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^15.2.0",
+    "prettier": "^2.8.8",
+    "segmentit": "^2.0.3",
+    "typescript": "^4.9.5",
+    "vite": "^4.5.0"
   }
 }
